@@ -1,5 +1,5 @@
 #test/test_helper.rb
-require './lib/benzinator'
+require './lib/movile_sms'
 require 'minitest/autorun'
 require 'webmock/minitest'
 require 'vcr'
