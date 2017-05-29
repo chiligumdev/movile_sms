@@ -6,4 +6,5 @@ class SmsTest < Minitest::Test
   def sms_exist
     assert MovileSms::Sms
   end
+
 end
