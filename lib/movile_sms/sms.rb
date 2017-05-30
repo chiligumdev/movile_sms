@@ -10,8 +10,21 @@ class Sms
   end
 
   def send_message(number, text)
-    body = { "destination" => number.to_s, "messageText" => text.to_s }.to_json
-    response = self.class.post(BASE_API_URL, headers: @options, body: body )
+    if valid_number?(number) and text_size(text)
+      body = { "destination" => number.to_s, "messageText" => text.to_s }.to_json
+      response = self.class.post(BASE_API_URL, headers: @options, body: body )
+    else
+      raise "Check if the imputed number #{number} is valid or if the text has a maximum of 162 characters
+"
+    end
+  end
+
+  def valid_number?(number)
+    true if Float(number) rescue false
+  end
+
+  def text_size(text)
+    text.size <= 162
   end
 
 end
