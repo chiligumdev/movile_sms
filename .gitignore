@@ -1,5 +1,6 @@
 /.bundle/
 /.yardoc
+/.byebug_history
 /Gemfile.lock
 /_yardoc/
 /coverage/
@@ -7,4 +8,3 @@
 /pkg/
 /spec/reports/
 /tmp/
-/.byebug_history/
