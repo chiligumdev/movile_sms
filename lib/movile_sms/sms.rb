@@ -12,16 +12,17 @@ class Sms
   end
 
   def send_message(number, text)
-    raise 'Not Valid' if valid_number?(number) && text_size(text)
+    raise 'Not Valid' unless numeric?(number) && sms_valid_length(text)
     body = { 'destination' => number, 'messageText' => text }.to_json
     self.class.post(BASE_API_URL, headers: @options, body: body)
   end
 
-  def valid_number?(number)
-    Float(number)
+  # Return false if the value isn't a numeric value
+  def numeric?(number)
+    Float(number).nil? rescue false
   end
 
-  def text_size(text)
+  def sms_valid_length(text)
     text.size <= 162
   end
 end
