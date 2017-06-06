@@ -36,6 +36,32 @@ Ps: It is mandatory to pass the country and state code before the number.
 
 ```
 
+To check the status of your message, you will need to invoke the status_message (uuid) method, passing the uuid returned in the send_message send method.
+
+```
+  sms.status_message('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
+
+```
+
+The following return must be displayed if the uuid is valid.
+
+```
+{
+  "id":"f9c100ff-aed0-4456-898c-e57d754c439c",
+  "correlationId":"client-id",
+  "carrierId":1,
+  "carrierName":"VIVO",
+  "destination":"5511900009999",
+  "sentStatusCode":2,
+  "sentStatus":"SENT_SUCCESS",
+  "sentAt":1266660300000,
+  "sentDate":"2010-02-20T10:05:00Z",
+  "campaignId":"64",
+  "extraInfo":"",
+}
+```
+
+
 
 ## Contributing
 
