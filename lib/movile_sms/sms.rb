@@ -7,6 +7,7 @@ class SMS
   REPORT_API_URL = 'https://api-messaging.movile.com/v1/sms-status?id='.freeze
 
   def initialize(attributes)
+    @options = {}
     @options['UserName'] = attributes[:username]
     @options['AuthenticationToken'] = attributes[:access_token]
     @options['Content-Type'] = 'application/json'
