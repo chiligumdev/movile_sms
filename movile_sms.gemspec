@@ -6,7 +6,7 @@ require 'movile_sms/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'movile_sms'
-  spec.version       = MovileSms::VERSION
+  spec.version       = Movile::VERSION
   spec.authors       = ['Leandro']
   spec.email         = ['lndr.figueredo@gmail.com']
   spec.summary       = %('Send sms messages with Movile API.')
