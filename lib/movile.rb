@@ -1,7 +1,7 @@
 require 'httparty'
 require 'json'
-require 'movile_sms/version'
-require 'movile_sms/sms'
+require 'movile/version'
+require 'movile/sms'
 
 # movile/movile
 module Movile

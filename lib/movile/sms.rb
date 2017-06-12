@@ -1,4 +1,4 @@
-# lib/movile_sms/sms.rb
+# lib/movile/sms.rb
 class SMS
   include HTTParty
 

@@ -4,6 +4,6 @@ require './test/test_helper'
 
 class SmsTest < Minitest::Test
   def sms_exist
-    assert MovileSms::Sms
+    assert Movile::Sms
   end
 end
