@@ -5,11 +5,11 @@ require 'movile_sms/sms'
 
 class SmsTest < Minitest::Test
   def setup
-    @sms = SMS.new(username: 'Your User Name', access_token: 'Your Access Token')
+    @sms = SMS.new(username: 'User Name', access_token: 'Access Token')
   end
 
   def test_setup
-    assert SMS.new(username: 'Your User Name', access_token: 'Your Access Token')
+    assert SMS.new(username: 'User Name', access_token: 'Access Token')
   end
 
   def test_instance_sms
