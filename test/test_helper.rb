@@ -1,4 +1,5 @@
 # test/test_helper.rb
-
-require './lib/movile_sms'
 require 'minitest/autorun'
+require 'minitest/unit'
+require 'minitest/pride'
+require 'sms_test'
