@@ -2,16 +2,16 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'movile_sms/version'
+require 'movile/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'movile_sms'
-  spec.version       = MovileSms::VERSION
+  spec.version       = Movile::VERSION
   spec.authors       = ['Leandro']
   spec.email         = ['lndr.figueredo@gmail.com']
   spec.summary       = %('Send sms messages with Movile API.')
   spec.description   = %('Simple integrate and send messages with movile API')
-  spec.homepage      = ''
+  spec.homepage      = 'http://doc-messaging.movile.com/'
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = 'https://rubygems.org'
