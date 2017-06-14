@@ -1,6 +1,5 @@
 [![Gem Version](http://img.shields.io/gem/v/movile_sms.svg?style=flat-square)](https://rubygems.org/gems/movile_sms)
 
-
 # MovileSms
 
 Movile SMS is a gem so you can send sms through the Movile API. It's simple and easy to integrate and start sending your messages.
