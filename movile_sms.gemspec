@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['lndr.figueredo@gmail.com']
   spec.summary       = %('Send sms messages with Movile API.')
   spec.description   = %('Simple integrate and send messages with movile API')
+  spec.licenses      = ['MIT']
   spec.homepage      = 'http://doc-messaging.movile.com/'
 
   if spec.respond_to?(:metadata)
@@ -30,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'minitest', '~> 5.10', '>= 5.10.2'
   spec.add_development_dependency 'rubocop', '~> 0.49.1'
-  spec.add_dependency 'httparty',  '~> 0.15.5'
+  spec.add_dependency 'httparty', '~> 0.15.5'
   spec.add_dependency 'json', '~> 1.8', '>= 1.8.3'
 end
