@@ -11,7 +11,6 @@ Gem::Specification.new do |spec|
   spec.email         = ['lndr.figueredo@gmail.com']
   spec.summary       = %('Send sms messages with Movile API.')
   spec.description   = %('Simple integrate and send messages with movile API')
-  spec.licenses      = ['MIT']
   spec.homepage      = 'http://doc-messaging.movile.com/'
 
   if spec.respond_to?(:metadata)

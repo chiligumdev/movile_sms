@@ -7,6 +7,7 @@ class SmsTest < Minitest::Test
   def setup
     @sms = SMS.new(username: ENV['MOVILE_USER'],
                    access_token: ENV['MOVILE_TOKEN'])
+    @sms_invalid = SMS.new(username: 'Some User', access_token: 'Any Token')
   end
 
   def test_method_send
@@ -21,7 +22,7 @@ class SmsTest < Minitest::Test
     invalid_number = '123'
     invalid_text = ('a' * 159)
     assert_raises 'Not Valid' do
-       @sms.send_message(invalid_number, invalid_text)
+      @sms.send_message(invalid_number, invalid_text)
     end
   end
 
@@ -29,13 +30,13 @@ class SmsTest < Minitest::Test
     invalid_number = '5511999999999'
     invalid_text = ('a' * 161)
     assert_raises 'Not Valid' do
-       @sms.send_message(invalid_number, invalid_text)
+      @sms.send_message(invalid_number, invalid_text)
     end
   end
 
   def test_status_message_param
     assert_raises ArgumentError do
-      @sms.status_message #no_params
+      @sms.status_message # no_params
     end
   end
 
@@ -60,7 +61,12 @@ class SmsTest < Minitest::Test
   end
 
   def test_send_invalid_username_or_token
-    @sms_invalid = SMS.new(username: 'Some User', access_token: 'Any Token')
     assert_nil(@sms_invalid.send_message('5511999999999', 'only a test'))
+  end
+
+  def test_send_argument_error
+    assert_raises ArgumentError do
+      @sms_invalid.send_message('wrong number of params')
+    end
   end
 end
