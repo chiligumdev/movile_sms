@@ -1,5 +1,3 @@
-[![Dependency Status](http://img.shields.io/gemnasium/chiligumdev/movile_sms.svg?style=flat-square)](https://gemnasium.com/chiligumdev/movile_sms)
-[![Code Climate](http://img.shields.io/codeclimate/github/chiligumdev/movile_sms.svg?style=flat-square)](https://codeclimate.com/github/chiligumdev/movile_sms)
 [![Gem Version](http://img.shields.io/gem/v/movile_sms.svg?style=flat-square)](https://rubygems.org/gems/movile_sms)
 
 
