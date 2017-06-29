@@ -1,5 +1,3 @@
-[![Gem Version](http://img.shields.io/gem/v/movile_sms.svg?style=flat-square)](https://rubygems.org/gems/movile_sms)
-
 # MovileSms
 
 Movile SMS is a gem so you can send sms through the Movile API. It's simple and easy to integrate and start sending your messages.
@@ -25,7 +23,7 @@ Or install it yourself as:
 After installing the gem and registering with the movile API, instantiate the Sms class by passing its UserName and AuthenticationToken credentials.
 
 ```
-  sms =  SMS.new(username: 'Your User Name', access_token: 'Your Access Token')
+  sms =  Movile::SMS.new(username: 'Your User Name', access_token: 'Your Access Token')
 
 ```
 
