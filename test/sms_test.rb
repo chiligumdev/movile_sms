@@ -18,6 +18,10 @@ class SmsTest < Minitest::Test
     assert_equal(true, @sms.methods.include?(:status_message))
   end
 
+  def test_method_send_bulk
+    assert_equal(true, @sms.methods.include?(:send_bulk_message))
+  end
+
   def test_invalid_number
     invalid_number = '123'
     invalid_text = ('a' * 159)
@@ -48,12 +52,20 @@ class SmsTest < Minitest::Test
     refute_empty Movile::SMS::BASE_API_URL
   end
 
+  def test_empty_bulk_url
+    refute_empty Movile::SMS::BULK_API_URL
+  end
+
   def test_empty_report_url
     refute_empty Movile::SMS::REPORT_API_URL
   end
 
   def test_report_url
     assert_kind_of String, Movile::SMS::REPORT_API_URL
+  end
+
+  def test_bulk_url
+    assert_kind_of String, Movile::SMS::BULK_API_URL
   end
 
   def test_instance_sms

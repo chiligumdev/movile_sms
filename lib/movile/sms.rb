@@ -7,6 +7,8 @@ module Movile
 
     REPORT_API_URL = 'https://api-messaging.movile.com/v1/sms-status?id='.freeze
 
+    BULK_API_URL = 'https://api-messaging.movile.com/v1/send-bulk-sms'.freeze
+
     def initialize(attributes)
       @options = {}
       @options['UserName'] = attributes[:username]
@@ -15,7 +17,7 @@ module Movile
     end
 
     def send_message(number, text)
-      raise 'Not Valid' unless numeric?(number) && valid_text?(text)
+      valid_message?(number, text)
       body = { 'destination' => number, 'messageText' => text }.to_json
       response = self.class.post(BASE_API_URL, headers: @options, body: body)
       response['id']
@@ -26,6 +28,13 @@ module Movile
       JSON.parse(response.body)
     end
 
+    def send_bulk_message(*message_attributes)
+      message_attributes.each do |message|
+        valid_message?(number, text)
+        response = self.class.post(BULK_API_URL, headers: @options, body: body)
+      end
+    end
+
     # Return false if the value isn't a numeric value
     def numeric?(number)
       Float(number) ? true : false
@@ -34,5 +43,10 @@ module Movile
     def valid_text?(text)
       text.size <= 160
     end
+
+    def valid_message?(number, text)
+      raise 'Not Valid' unless numeric?(number) && valid_text?(text)
+    end
+
   end
 end
