@@ -6,8 +6,8 @@ require 'movile'
 class SmsTest < Minitest::Test
   def setup
     @sms = Movile::SMS.new(username: ENV['MOVILE_USER'],
-                   access_token: ENV['MOVILE_TOKEN'])
-    @sms_invalid = Movile::SMS.new(username: 'Some User', access_token: 'Any Token')
+                           access_token: ENV['MOVILE_TOKEN'])
+    @sms_invalid = Movile::SMS.new(username: 'User', access_token: 'Token')
   end
 
   def test_method_send

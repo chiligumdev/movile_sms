@@ -1,5 +1,6 @@
-# lib/movile/sms.rb
+# lib/movile
 module Movile
+  # lib/movile/sms.rb
   class SMS
     include HTTParty
 
@@ -23,16 +24,21 @@ module Movile
       response['id']
     end
 
+    def send_bulk_message(list_numbers, text, default_message = 'Message')
+      body = {}
+      messages = []
+      list_numbers.each do |number|
+        messages << { destination: number, messageText: text }
+      end
+      body[:messages] = messages
+      body[:defaultValues] = { messageText: default_message }
+      response = self.class.post(BULK_API_URL, headers: @options, body: body)
+      response['id']
+    end
+
     def status_message(uuid)
       response = self.class.get(REPORT_API_URL + uuid, headers: @options)
       JSON.parse(response.body)
-    end
-
-    def send_bulk_message(*message_attributes)
-      message_attributes.each do |message|
-        valid_message?(number, text)
-        response = self.class.post(BULK_API_URL, headers: @options, body: body)
-      end
     end
 
     # Return false if the value isn't a numeric value
@@ -47,6 +53,5 @@ module Movile
     def valid_message?(number, text)
       raise 'Not Valid' unless numeric?(number) && valid_text?(text)
     end
-
   end
 end
