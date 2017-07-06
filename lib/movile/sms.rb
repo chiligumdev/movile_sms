@@ -31,11 +31,16 @@ module Movile
       body = {}
       messages = []
       list_numbers.each do |number|
-        messages << { destination: number, messageText: text }
+        if valid_message?(number, text)
+          messages << { destination: number, messageText: text }
+        else
+          numeric?(number) ? "The text message has #{text.size} characters the limit is 160." : "The phone number #{number} its not valid"
+        end
       end
       body[:messages] = messages
       body[:defaultValues] = { messageText: default_message }
-      response = self.class.post(BULK_API_URL, headers: @options, body: body)
+      puts body
+      response = self.class.post(BULK_API_URL, headers: @options, body: body.to_json)
       response['id']
     end
 
