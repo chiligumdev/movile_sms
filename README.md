@@ -22,7 +22,7 @@ Or install it yourself as:
 
 After installing the gem and registering with the movile API, instantiate the Sms class by passing its UserName and AuthenticationToken credentials.
 
-```
+```ruby
   sms =  Movile::SMS.new(username: 'Your User Name', access_token: 'Your Access Token')
 
 ```
@@ -31,21 +31,21 @@ After instantiating the Sms class by passing the authentication parameters, call
 
 Ps: It is mandatory to pass the country and state code before the number.
 
-```
+```ruby
   sms.send_message('5511999999999', 'this is my message from movile_sms gem!')
 
 ```
 
 To check the status of your message, you will need to invoke the status_message (uuid) method, passing the uuid returned in the send_message send method.
 
-```
+```ruby
   sms.status_message('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
 
 ```
 
 The following return must be displayed if the uuid is valid.
 
-```
+```json
 {
   "id":"f9c100ff-aed0-4456-898c-e57d754c439c",
   "correlationId":"client-id",
@@ -63,14 +63,14 @@ The following return must be displayed if the uuid is valid.
 You can also send bulk messages with optional defalt texts.
 To choose this alternative, you can use the send_bulk_message method available in gem as in the example below.
 
-```
+```ruby
   sms.send_bulk_message(['5511999999999', 5511888888888], 'custom message text')
 
 ```
 
 This method has the optional text parameters to make messages with standard texts, your signature is displayed as follows.
 
-```
+```ruby
   def send_bulk_message(list_numbers, text = nil, default_message = 'Message Default')
     some code here...
   end
@@ -78,7 +78,7 @@ This method has the optional text parameters to make messages with standard text
 ```
 
 After send a bulk message, the following return must be displayed if the uuid is valid.
-```
+```json
 {
   "total": 1,
   "start": "2016-09-04T11:12:41Z",
