@@ -24,17 +24,17 @@ class SmsTest < Minitest::Test
 
   def test_invalid_number
     invalid_number = '123'
-    invalid_text = ('a' * 159)
+    valid_text = ('a' * 159)
     assert_raises 'Not Valid' do
-      @sms.send_message(invalid_number, invalid_text)
+      @sms.send_message(invalid_number, valid_text)
     end
   end
 
   def test_invalid_text
-    invalid_number = '5511999999999'
+    valid_number = '5511999999999'
     invalid_text = ('a' * 161)
     assert_raises 'Not Valid' do
-      @sms.send_message(invalid_number, invalid_text)
+      @sms.send_message(valid_number, invalid_text)
     end
   end
 

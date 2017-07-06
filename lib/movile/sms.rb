@@ -18,10 +18,13 @@ module Movile
     end
 
     def send_message(number, text)
-      valid_message?(number, text)
-      body = { 'destination' => number, 'messageText' => text }.to_json
-      response = self.class.post(BASE_API_URL, headers: @options, body: body)
-      response['id']
+      if valid_message?(number, text)
+        body = { 'destination' => number, 'messageText' => text }.to_json
+        response = self.class.post(BASE_API_URL, headers: @options, body: body)
+        response['id']
+      else
+        numeric?(number) ? "The text message has #{text.size} characters the limit is 160." : "The phone number #{number} its not valid"
+      end
     end
 
     def send_bulk_message(list_numbers, text, default_message = 'Message')
@@ -42,8 +45,9 @@ module Movile
     end
 
     # Return false if the value isn't a numeric value
+    # The double negation turns this into an actual boolean true
     def numeric?(number)
-      Float(number) ? true : false
+      !!Float(number) rescue false
     end
 
     def valid_text?(text)
@@ -51,7 +55,7 @@ module Movile
     end
 
     def valid_message?(number, text)
-      raise 'Not Valid' unless numeric?(number) && valid_text?(text)
+      numeric?(number) && valid_text?(text)
     end
   end
 end
