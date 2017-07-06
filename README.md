@@ -77,7 +77,52 @@ This method has the optional text parameters to make messages with standard text
 
 ```
 
-
+After send a bulk message, the following return must be displayed if the uuid is valid.
+```
+{
+  "total": 1,
+  "start": "2016-09-04T11:12:41Z",
+  "end": "2016-09-08T11:17:39.113Z",
+  "messages": [
+    {
+      "id": "25950050-7362-11e6-be62-001b7843e7d4",
+      "subAccount": "iFoodMarketing",
+      "campaignAlias": "iFoodPromo",
+      "carrierId": 1,
+      "carrierName": "VIVO",
+      "source": "5516981562820",
+      "shortCode": "28128",
+      "messageText": "Eu quero pizza",
+      "receivedAt": 1473088405588,
+      "receivedDate": "2016-09-05T12:13:25Z",
+      "mt": {
+        "id": "8be584fd-2554-439b-9ba9-aab507278992",
+        "correlationId": "1876",
+        "username": "iFoodCS",
+        "email": "customer.support@ifood.com"
+      }
+    },
+    {
+      "id": "d3afc42a-1fd9-49ff-8b8b-34299c070ef3",
+      "subAccount": "iFoodMarketing",
+      "campaignAlias": "iFoodPromo",
+      "carrierId": 5,
+      "carrierName": "TIM",
+      "source": "5519987565020",
+      "shortCode": "28128",
+      "messageText": "Meu hamburguer está chegando?",
+      "receivedAt": 1473088405588,
+      "receivedDate": "2016-09-05T12:13:25Z",
+      "mt": {
+        "id": "302db832-3527-4e3c-b57b-6a481644d88b",
+        "correlationId": "1893",
+        "username": "iFoodCS",
+        "email": "customer.support@ifood.com"
+      }
+    }
+  ]
+}
+```
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/chiligumdev/movile_sms.
