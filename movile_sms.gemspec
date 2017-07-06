@@ -31,6 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest', '~> 5.10', '>= 5.10.2'
   spec.add_dependency 'json', '~> 1.8', '>= 1.8.3'
   spec.add_dependency 'httparty', '~> 0.15.5'
-  spec.add_dependency 'byebug'
   spec.add_development_dependency 'rubocop', '~> 0.49.1'
 end
