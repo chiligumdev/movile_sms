@@ -60,7 +60,22 @@ The following return must be displayed if the uuid is valid.
   "extraInfo":"",
 }
 ```
+You can also send bulk messages with optional defalt texts.
+To choose this alternative, you can use the send_bulk_message method available in gem as in the example below.
 
+```
+  sms.send_bulk_message(['5511999999999', 5511888888888], 'custom message text')
+
+```
+
+This method has the optional text parameters to make messages with standard texts, your signature is displayed as follows.
+
+```
+  def send_bulk_message(list_numbers, text = nil, default_message = 'Message Default')
+    some code here...
+  end
+
+```
 
 
 ## Contributing

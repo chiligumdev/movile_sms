@@ -27,7 +27,7 @@ module Movile
       end
     end
 
-    def send_bulk_message(list_numbers, text, default_message = 'Message')
+    def send_bulk_message(list_numbers, text, default_message = 'Message Default')
       body = {}
       messages = []
       list_numbers.each do |number|
