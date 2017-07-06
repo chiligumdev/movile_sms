@@ -39,7 +39,6 @@ module Movile
       end
       body[:messages] = messages
       body[:defaultValues] = { messageText: default_message }
-      puts body
       response = self.class.post(BULK_API_URL, headers: @options, body: body.to_json)
       response['id']
     end
