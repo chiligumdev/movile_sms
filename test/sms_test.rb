@@ -25,7 +25,7 @@ class SmsTest < Minitest::Test
   def test_invalid_number
     invalid_number = '123'
     valid_text = ('a' * 159)
-    assert_raises 'Not Valid' do
+    assert_raises 'The phone number #{invalid_number} its not valid' do
       @sms.send_message(invalid_number, valid_text)
     end
   end
@@ -33,9 +33,7 @@ class SmsTest < Minitest::Test
   def test_invalid_text
     valid_number = '5511999999999'
     invalid_text = ('a' * 161)
-    assert_raises 'Not Valid' do
-      @sms.send_message(valid_number, invalid_text)
-    end
+    assert_equal("The text message has #{invalid_text.size} characters the limit is 160.", @sms.send_message(valid_number, invalid_text))
   end
 
   def test_status_message_param

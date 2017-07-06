@@ -47,7 +47,7 @@ module Movile
     # Return false if the value isn't a numeric value
     # The double negation turns this into an actual boolean true
     def numeric?(number)
-      !!Float(number) rescue false
+      Float(number) rescue false
     end
 
     def valid_text?(text)
