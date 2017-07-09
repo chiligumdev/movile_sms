@@ -3,6 +3,7 @@ require 'httparty'
 require 'movile/sms'
 require 'movile'
 
+
 class SmsTest < Minitest::Test
   def setup
     @sms = Movile::SMS.new(username: ENV['MOVILE_USER'],
