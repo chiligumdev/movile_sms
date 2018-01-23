@@ -1,7 +1,6 @@
 # test/sms/sms_test.rb
 require 'httparty'
 require 'movile/sms'
-require 'movile'
 
 class SmsTest < Minitest::Test
   def setup

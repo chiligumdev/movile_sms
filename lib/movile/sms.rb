@@ -1,3 +1,4 @@
+require 'figaro'
 # lib/movile
 module Movile
   # lib/movile/sms.rb
@@ -11,6 +12,7 @@ module Movile
     BULK_API_URL = 'https://api-messaging.movile.com/v1/send-bulk-sms'.freeze
 
     def initialize(attributes)
+      load_env_variables
       @options = {}
       @options['UserName'] = attributes[:username]
       @options['AuthenticationToken'] = attributes[:access_token]
@@ -60,6 +62,14 @@ module Movile
 
     def valid_message?(number, text)
       numeric?(number) && valid_text?(text)
+    end
+
+    protected
+
+    # Config to load application file figaro and env variables
+    def load_env_variables
+      Figaro.application = Figaro::Application.new(path: "config/application.yml")
+      Figaro.load
     end
   end
 end
