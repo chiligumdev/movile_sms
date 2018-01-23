@@ -3,7 +3,6 @@ require 'httparty'
 require 'movile/sms'
 require 'movile'
 
-
 class SmsTest < Minitest::Test
   def setup
     @sms = Movile::SMS.new(username: ENV['MOVILE_USER'],
@@ -24,6 +23,7 @@ class SmsTest < Minitest::Test
   end
 
   def test_invalid_number
+    setup
     invalid_number = '123'
     valid_text = ('a' * 159)
     assert_raises 'The phone number #{invalid_number} its not valid' do
