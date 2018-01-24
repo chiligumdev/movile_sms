@@ -53,7 +53,7 @@ module Movile
     # Return false if the value isn't a numeric value
     # The double negation turns this into an actual boolean true
     def numeric?(number)
-      Float(number) rescue false
+      (Float(number) != nil rescue false) && number.size >= 12 && number.size <=13
     end
 
     def valid_text?(text)

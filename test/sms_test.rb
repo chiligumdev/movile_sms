@@ -25,9 +25,7 @@ class SmsTest < Minitest::Test
     setup
     invalid_number = '123'
     valid_text = ('a' * 159)
-    assert_raises 'The phone number #{invalid_number} its not valid' do
-      @sms.send_message(invalid_number, valid_text)
-    end
+    assert_equal("The phone number #{invalid_number} its not valid", @sms.send_message(invalid_number, valid_text))
   end
 
   def test_invalid_text
