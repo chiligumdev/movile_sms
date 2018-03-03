@@ -17,9 +17,9 @@ class SmsTest < Minitest::Test
     assert_equal(true, @sms.methods.include?(:status_message))
   end
 
-  def test_method_send_bulk
-    assert_equal(true, @sms.methods.include?(:send_bulk_message))
-  end
+  # def test_method_send_bulk
+  #   assert_equal(true, @sms.methods.include?(:send_bulk_message))
+  # end
 
   def test_invalid_number
     setup
