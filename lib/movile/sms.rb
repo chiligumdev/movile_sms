@@ -29,22 +29,6 @@ module Movile
       end
     end
 
-    def send_bulk_message(list_numbers, text, default_message = 'Message Default')
-      body = {}
-      messages = []
-      list_numbers.each do |number|
-        if valid_message?(number, text)
-          messages << { destination: number, messageText: text }
-        else
-          numeric?(number) ? "The text message has #{text.size} characters the limit is 160." : "The phone number #{number} its not valid"
-        end
-      end
-      body[:messages] = messages
-      body[:defaultValues] = { messageText: default_message }
-      response = self.class.post(BULK_API_URL, headers: @options, body: body.to_json)
-      response['id']
-    end
-
     def status_message(uuid)
       response = self.class.get(REPORT_API_URL + uuid, headers: @options)
       JSON.parse(response.body)
