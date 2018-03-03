@@ -12,10 +12,10 @@ module Movile
     BULK_API_URL = 'https://api-messaging.movile.com/v1/send-bulk-sms'.freeze
 
     def initialize(attributes)
-      load_env_variables
+      #load_env_variables
       @options = {}
       @options['UserName'] = attributes[:username]
-      @options['AuthenticationToken'] = attributes[:access_token]
+      @options['AuthenticationToken'] = attributes[:authentication_token]
       @options['Content-Type'] = 'application/json'
     end
 
