@@ -23,7 +23,7 @@ Or install it yourself as:
 After installing the gem and registering with the movile API, instantiate the Sms class by passing its UserName and AuthenticationToken credentials.
 
 ```ruby
-  sms =  Movile::SMS.new(username: 'Your User Name', access_token: 'Your Access Token')
+  sms =  Movile::SMS.new(username: 'Your User Name', authentication_token: 'Your Authentication Token')
 
 ```
 
