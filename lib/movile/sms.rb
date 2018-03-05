@@ -32,6 +32,13 @@ module Movile
       JSON.parse(response.body)
     end
 
+    
+    private    
+
+    def self.generate_cell_phone
+      "+55#{'%07d' % rand(10**7)}#{'%04d' % rand(10**4)}"
+    end
+
     # Return false if the value isn't a numeric value
     # The double negation turns this into an actual boolean true
     def valid_number?(number)

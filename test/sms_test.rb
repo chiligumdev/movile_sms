@@ -17,6 +17,12 @@ class SmsTest < Minitest::Test
     assert_equal(true, @sms.methods.include?(:status_message))
   end
 
+  def test_generate_cell_phone_random
+    @phone_1 = Movile::SMS.generate_cell_phone
+    @phone_2 = Movile::SMS.generate_cell_phone
+    refute_equal(@phone_1, @phone_2)
+  end
+
   # def test_method_send_bulk
   #   assert_equal(true, @sms.methods.include?(:send_bulk_message))
   # end
@@ -31,7 +37,7 @@ class SmsTest < Minitest::Test
   def test_invalid_text
     valid_number = '5511999999999'
     invalid_text = ('a' * 161)
-    assert_equal("The text message has #{invalid_text.size} characters the limit is 160.", @sms.send_message(valid_number, invalid_text))
+    assert_equal("The text message has #{invalid_text.size}. enter at least 1 character or at most 160 characters.", @sms.send_message(valid_number, invalid_text))
   end
 
   def test_status_message_param
