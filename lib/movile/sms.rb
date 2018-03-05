@@ -6,9 +6,7 @@ module Movile
     include HTTParty
 
     BASE_API_URL = 'https://api-messaging.movile.com/v1/send-sms'.freeze
-
     REPORT_API_URL = 'https://api-messaging.movile.com/v1/sms-status?id='.freeze
-
     BULK_API_URL = 'https://api-messaging.movile.com/v1/send-bulk-sms'.freeze
 
     def initialize(attributes)
@@ -25,7 +23,7 @@ module Movile
         response = self.class.post(BASE_API_URL, headers: @options, body: body)
         response['id']
       else
-        numeric?(number) ? "The text message has #{text.size} characters the limit is 160." : "The phone number #{number} its not valid"
+        valid_number?(number) ? "The text message has #{text.size} characters the limit is 160." : "The phone number #{number} its not valid"
       end
     end
 
@@ -36,16 +34,21 @@ module Movile
 
     # Return false if the value isn't a numeric value
     # The double negation turns this into an actual boolean true
-    def numeric?(number)
-      (Float(number) != nil rescue false) && number.size >= 12 && number.size <=13
+    def valid_number?(number)
+      result = number =~ /\A[+]?[0-9]*\.?[0-9]+\z/
+      return false if result.nil?
+
+      result = number.gsub(/\D+/, "")
+      return result.size == 13 || result.size == 12
     end
 
-    def valid_text?(text)
-      text.size <= 160
+    def valid_text?(message)
+      return false if message.nil?
+      message.size <= 160
     end
 
-    def valid_message?(number, text)
-      numeric?(number) && valid_text?(text)
+    def valid_message?(number, message)
+      valid_number?(number) && valid_text?(message)
     end
 
     protected
