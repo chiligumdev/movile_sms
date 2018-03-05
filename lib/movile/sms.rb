@@ -43,7 +43,7 @@ module Movile
     end
 
     def valid_text?(message)
-      return false if message.nil?
+      return false if message.empty?
       message.size <= 160
     end
 
