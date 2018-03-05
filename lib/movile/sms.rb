@@ -23,7 +23,7 @@ module Movile
         response = self.class.post(BASE_API_URL, headers: @options, body: body)
         response['id']
       else
-        valid_number?(number) ? "The text message has #{text.size} characters the limit is 160." : "The phone number #{number} its not valid"
+        valid_number?(number) ? "The text message has #{text.size}. enter at least 1 character or at most 160 characters." : "The phone number #{number} its not valid"
       end
     end
 
@@ -48,6 +48,7 @@ module Movile
     end
 
     def valid_message?(number, message)
+      number = number.to_s
       valid_number?(number) && valid_text?(message)
     end
 
