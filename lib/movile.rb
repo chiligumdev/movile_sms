@@ -4,6 +4,6 @@ require 'movile/sms'
 require 'movile/version'
 # movile_sms/movile
 
+# frozen_string_literal: true
 module Movile
-  # frozen_string_literal: true
 end
