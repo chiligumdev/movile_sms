@@ -43,7 +43,7 @@ module Movile
       result = number =~ /\A[+]?[0-9]*\.?[0-9]+\z/
       return false if result.nil?
 
-      result = number.gsub(/\D+/, "")
+      result = number.gsub(/\D+/, '')
       result.size == 13 || result.size == 12
     end
 
