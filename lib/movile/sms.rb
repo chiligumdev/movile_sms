@@ -45,7 +45,7 @@ module Movile
       return false if result.nil?
 
       result = number.gsub(/\D+/, "")
-      return result.size == 13 || result.size == 12
+      result.size == 13 || result.size == 12
     end
 
     def valid_text?(message)
