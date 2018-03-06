@@ -37,7 +37,6 @@ module Movile
       "+55#{'%07d' % rand(10**7)}#{'%04d' % rand(10**4)}"
     end
 
-
     private    
 
     def valid_number?(number)
