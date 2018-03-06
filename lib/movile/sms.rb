@@ -62,7 +62,7 @@ module Movile
 
     # Config to load application file figaro and env variables
     def load_env_variables
-      Figaro.application = Figaro::Application.new(path: "config/application.yml")
+      Figaro.application = Figaro::Application.new(path: 'config/application.yml')
       Figaro.load
     end
   end
