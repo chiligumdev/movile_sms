@@ -6,7 +6,8 @@ class SmsTest < Minitest::Test
   def setup
     @sms = Movile::SMS.new(username: ENV['MOVILE_USER'],
                            authentication_token: ENV['MOVILE_TOKEN'])
-    @sms_invalid = Movile::SMS.new(username: 'User', authentication_token: 'Token')
+    @sms_invalid = Movile::SMS.new(username: 'User',
+                                   authentication_token: 'Token')
   end
 
   def test_method_send
@@ -31,13 +32,15 @@ class SmsTest < Minitest::Test
     setup
     invalid_number = '123'
     valid_text = ('a' * 159)
-    assert_equal("The phone number #{invalid_number} its not valid", @sms.send_message(invalid_number, valid_text))
+    assert_equal("The phone number #{invalid_number} its not valid",
+                 @sms.send_message(invalid_number, valid_text))
   end
 
   def test_invalid_text
     valid_number = '5511999999999'
     invalid_text = ('a' * 161)
-    assert_equal("The text message has #{invalid_text.size}. enter at least 1 character or at most 160 characters.", @sms.send_message(valid_number, invalid_text))
+    assert_equal("The text message has #{invalid_text.size}. Enter at least 1 character or at most 160 characters.",
+                 @sms.send_message(valid_number, invalid_text))
   end
 
   def test_status_message_param
