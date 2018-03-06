@@ -31,7 +31,7 @@ module Movile
       response = self.class.get(REPORT_API_URL + uuid, headers: @options)
       JSON.parse(response.body)
     end
-    
+
     def self.generate_cell_phone
       "+55#{'%07d' % rand(10**7)}#{'%04d' % rand(10**4)}"
     end

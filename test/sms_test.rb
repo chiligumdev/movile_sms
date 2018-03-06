@@ -18,9 +18,9 @@ class SmsTest < Minitest::Test
   end
 
   def test_generate_cell_phone_random
-    @phone_1 = Movile::SMS.generate_cell_phone
-    @phone_2 = Movile::SMS.generate_cell_phone
-    refute_equal(@phone_1, @phone_2)
+    @phone1 = Movile::SMS.generate_cell_phone
+    @phone2 = Movile::SMS.generate_cell_phone
+    refute_equal(@phone1, @phone2)
   end
 
   # def test_method_send_bulk
