@@ -39,7 +39,7 @@ module Movile
 
 
     private    
-    
+
     def valid_number?(number)
       result = number =~ /\A[+]?[0-9]*\.?[0-9]+\z/
       return false if result.nil?
