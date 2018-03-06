@@ -23,7 +23,7 @@ module Movile
         response = self.class.post(BASE_API_URL, headers: @options, body: body)
         response['id']
       else
-        valid_number?(number) ? "The text message has #{text.size}. enter at least 1 character or at most 160 characters." : "The phone number #{number} its not valid"
+        valid_number?(number) ? "The text message has #{text.size}. Enter at least 1 character or at most 160 characters." : "The phone number #{number} its not valid"
       end
     end
 
@@ -40,8 +40,6 @@ module Movile
 
     private    
     
-    # Return false if the value isn't a numeric value
-    # The double negation turns this into an actual boolean true
     def valid_number?(number)
       result = number =~ /\A[+]?[0-9]*\.?[0-9]+\z/
       return false if result.nil?

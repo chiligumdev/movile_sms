@@ -4,5 +4,6 @@ source 'https://rubygems.org'
 gemspec
 gem 'simplecov', :require => false, :group => :test
 gem 'byebug'
-gem "figaro"
+gem 'figaro'
+gem 'rubocop', require: false
 
