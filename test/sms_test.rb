@@ -41,7 +41,8 @@ class SmsTest < Minitest::Test
   def test_invalid_text
     valid_number = '5511999999999'
     invalid_text = ('a' * 161)
-    assert_equal("The text message has #{invalid_text.size}. Enter at least 1 character or at most 160 characters.",
+    assert_equal("The text message has #{invalid_text.size}
+      . Enter at least 1 character or at most 160 characters.",
                  @sms.send_message(valid_number, invalid_text))
   end
 

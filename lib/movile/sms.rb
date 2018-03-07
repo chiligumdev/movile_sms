@@ -17,7 +17,7 @@ module Movile
         response = self.class.post(base_api_url, headers: @options, body: body)
         response['id']
       else
-        valid_number?(number) ? error_text_message(text) : error_message_number(number)
+        valid_number?(number) ? error_message(text) : error_number(number)
       end
     end
 
@@ -30,12 +30,13 @@ module Movile
       "+55#{'%07d' % rand(10**7)}#{'%04d' % rand(10**4)}"
     end
 
-    def error_message_number(number)
+    def error_number(number)
       "The phone number #{number} its not valid"
     end
 
-    def error_text_message(text)
-      "The text message has #{text.size}. Enter at least 1 character or at most 160 characters."
+    def error_message(text)
+      "The text message has #{text.size}
+      . Enter at least 1 character or at most 160 characters."
     end
 
     private
