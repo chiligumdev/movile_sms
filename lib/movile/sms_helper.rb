@@ -3,7 +3,6 @@ require 'figaro'
 module Movile
   # lib/movile/sms_helper.rb
   class SmsHelper
-
     def initialize
       load_env_variables
     end
