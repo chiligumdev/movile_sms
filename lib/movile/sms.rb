@@ -31,11 +31,11 @@ module Movile
     end
 
     def error_message_number(number)
-      'The phone number #{number} its not valid'
+      "The phone number #{number} its not valid"
     end
 
     def error_text_message(text)
-      'The text message has #{text.size}. Enter at least 1 character or at most 160 characters.'
+      "The text message has #{text.size}. Enter at least 1 character or at most 160 characters."
     end
 
     private

@@ -1,8 +1,11 @@
 # test/sms/sms_test.rb
+require 'byebug'
 require 'httparty'
+require 'movile/sms_helper'
 require 'movile/sms'
 
 class SmsTest < Minitest::Test
+
   def setup
     @sms = Movile::SMS.new(username: ENV['MOVILE_USER'],
                            authentication_token: ENV['MOVILE_TOKEN'])
@@ -50,27 +53,27 @@ class SmsTest < Minitest::Test
   end
 
   def test_base_url
-    assert_kind_of String, Movile::SMS::BASE_API_URL
+    assert_kind_of String, @sms.base_api_url
   end
 
   def test_empty_base_url
-    refute_empty Movile::SMS::BASE_API_URL
+    refute_empty @sms.base_api_url
   end
 
   def test_empty_bulk_url
-    refute_empty Movile::SMS::BULK_API_URL
+    refute_empty @sms.bulk_api_url
   end
 
   def test_empty_report_url
-    refute_empty Movile::SMS::REPORT_API_URL
+    refute_empty @sms.report_api_url
   end
 
   def test_report_url
-    assert_kind_of String, Movile::SMS::REPORT_API_URL
+    assert_kind_of String, @sms.report_api_url
   end
 
   def test_bulk_url
-    assert_kind_of String, Movile::SMS::BULK_API_URL
+    assert_kind_of String, @sms.bulk_api_url
   end
 
   def test_instance_sms
