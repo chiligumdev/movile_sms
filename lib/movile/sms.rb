@@ -5,10 +5,9 @@ module Movile
     include HTTParty
 
     def initialize(attributes)
-      @options = {}
+      super
       @options['UserName'] = attributes[:username]
       @options['AuthenticationToken'] = attributes[:authentication_token]
-      @options['Content-Type'] = 'application/json'
     end
 
     def send_message(number, text)

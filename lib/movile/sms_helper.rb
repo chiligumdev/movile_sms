@@ -3,7 +3,9 @@ require 'figaro'
 module Movile
   # lib/movile/sms_helper.rb
   class SmsHelper
-    def initialize
+    def initialize(*)
+      @options = {}
+      @options['Content-Type'] = 'application/json'
       load_env_variables
     end
 
