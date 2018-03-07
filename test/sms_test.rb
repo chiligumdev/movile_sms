@@ -5,7 +5,6 @@ require 'movile/sms_helper'
 require 'movile/sms'
 
 class SmsTest < Minitest::Test
-
   def setup
     @sms = Movile::SMS.new(username: ENV['MOVILE_USER'],
                            authentication_token: ENV['MOVILE_TOKEN'])
