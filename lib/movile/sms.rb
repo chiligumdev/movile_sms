@@ -26,7 +26,7 @@ module Movile
     end
 
     def self.generate_cell_phone
-      "+55#{sprintf(rand(10**7))}#{sprintf(rand(10**4))}"
+      "+55#{sprintf(rand(10**7).to_s)}#{sprintf(rand(10**4).to_s)}"
     end
 
     def error_number(number)
