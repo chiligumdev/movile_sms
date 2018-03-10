@@ -12,11 +12,11 @@ module Movile
     end
 
     def send_message(number, text)
-      raise if valid_message?(number, text).false?
-      body = { 'destination' => number, 'messageText' => text }.to_json
-      response = self.class.post(base_api_url, headers: @options, body: body)
-      response['id']
-      rescue
+      if valid_message?(number, text)
+        body = { 'destination' => number, 'messageText' => text }.to_json
+        response = self.class.post(base_api_url, headers: @options, body: body)
+        response['id']
+      else
         valid_number?(number) ? error_message(text) : error_number(number)
       end
     end
