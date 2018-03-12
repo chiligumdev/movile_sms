@@ -4,5 +4,7 @@ source 'https://rubygems.org'
 gemspec
 gem 'byebug'
 gem 'figaro'
+gem 'rspec-rails', '~> 3.7'
 gem 'rubocop', require: false
 gem 'simplecov', require: false, group: :test
+
